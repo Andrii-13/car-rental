@@ -1,0 +1,26 @@
+/* Manrope-400*/
+@font-face {
+  font-display: swap;
+  font-family: 'Manrope';
+  src: url('./Manrope-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Manrope-500*/
+@font-face {
+  font-display: swap;
+  font-family: 'Manrope';
+  src: url('./Manrope-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Manrope-600*/
+@font-face {
+  font-display: swap;
+  font-family: 'Manrope';
+  src: url('./Manrope-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
