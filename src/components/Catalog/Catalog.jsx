@@ -1,11 +1,11 @@
 import React from 'react';
-import { Cards, Filter } from './index.js';
+import { Cards, Filters } from './index.js';
 
 export const Catalog = () => {
 
   return (
     <div>
-      <Filter />
+      <Filters />
       <Cards/>
     </div>
   );
