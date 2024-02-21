@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.cd2e038f.css",
-    "main.js": "/react-homework-template/static/js/main.a2288d03.js",
-    "index.html": "/react-homework-template/index.html",
-    "main.cd2e038f.css.map": "/react-homework-template/static/css/main.cd2e038f.css.map",
-    "main.a2288d03.js.map": "/react-homework-template/static/js/main.a2288d03.js.map"
+    "main.css": "/car-rental/static/css/main.cd2e038f.css",
+    "main.js": "/car-rental/static/js/main.d2dcc85b.js",
+    "index.html": "/car-rental/index.html",
+    "main.cd2e038f.css.map": "/car-rental/static/css/main.cd2e038f.css.map",
+    "main.d2dcc85b.js.map": "/car-rental/static/js/main.d2dcc85b.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.a2288d03.js"
+    "static/js/main.d2dcc85b.js"
   ]
 }
