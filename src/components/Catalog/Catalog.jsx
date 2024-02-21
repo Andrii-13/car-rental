@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Cards, Filter } from './index.js';
 
-export default function Catalog() {
+export const Catalog = () => {
   return (
-    <div>Catalog</div>
-  )
-}
+    <div>
+      <Filter />
+      <Cards/>
+    </div>
+  );
+};
