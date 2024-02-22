@@ -1,4 +1,6 @@
 import { Button } from 'components/common';
+import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from "react-icons/fa6";
 import styled from 'styled-components';
 
 export const CardStyled = styled.li`
@@ -16,6 +18,7 @@ export const CardStyled = styled.li`
 `;
 
 export const ImgWrap = styled.div`
+  position: relative;
   width: 100%;
   height: auto;
   border-radius: 14px;
@@ -33,7 +36,6 @@ export const BrandWrap = styled.div`
   white-space: nowrap; /* Запобігає переносу тексту */
   overflow: hidden; /* Ховає текст, який не поміщається */
   text-overflow: ellipsis; /* Відображає знак многоточія, якщо текст обрізаний */
-  
 
   .modelCar {
     margin: 0 4px;
@@ -53,12 +55,36 @@ export const DescriptionWrap = styled.div`
 `;
 
 export const FunctionalitiesStyled = styled.p`
- word-wrap: break-word;
+  word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-` 
+`;
 
 export const Btn = styled(Button)`
   width: 100%;
   height: 44px;
+`;
+
+export const HeartBtn = styled.button`
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: inherit;
+  top: 14px;
+  right: 14px;
+
+`;
+
+export const HeartImg = styled(FaRegHeart)`
+  fill: ${p => p.theme.buttonFontColor};
+  opacity: 0.8;
+  height: 18px;
+  width: 18px;
+`;
+
+export const HeartImgActiv = styled(FaHeart )`
+  fill: ${p => p.theme.buttonColor};
+  height: 18px;
+  width: 18px;
 `;
