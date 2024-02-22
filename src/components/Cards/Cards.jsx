@@ -1,10 +1,31 @@
-import { Card } from 'components'
-import React from 'react';
+import { fetchData } from 'api';
+import { Card } from 'components';
+import React, { useEffect, useState } from 'react';
+import { nanoid } from 'nanoid'
+import { CardsList } from './Cards.styled';
+
 
 export const Cards = () => {
-  return (
-    // <div>Cards</div>
+  const [cards, setCards] = useState([]);
 
-    <ul><Card/></ul>
+  useEffect(() => {
+    const fetchAllCards = async () => {
+      try {
+        const cars = await fetchData();
+
+        setCards(cars);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAllCards();
+  }, []);
+
+  console.log(cards);
+
+  return (
+    <CardsList>
+      {cards.map((card) => (<Card key={nanoid()} card={card}/>))}
+    </CardsList>
   );
 };

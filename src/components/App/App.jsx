@@ -1,20 +1,15 @@
 // import Layout from 'components/Layout/Layout';
 
+import { Header } from 'components';
 import Catalog from 'pages/Catalog/Catalog';
 import Favorites from 'pages/Favorites/Favorites';
 import Home from 'pages/Home/Home';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (
     <>
-      <header>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/catalog">Catalog</NavLink>
-          <NavLink to="/favorites">Favorites</NavLink>
-        </nav>
-      </header>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />

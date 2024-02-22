@@ -1,7 +1,7 @@
 export const MainTheme = {
   // =========  Backgrounds
 
-  mainBackgroundColor: '#FFFFFF',
+  mainBackgroundColor: '#FFFFFF',  
 
   // =========  Fonts
   mainFontColor: '#121417',

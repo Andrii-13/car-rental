@@ -3,14 +3,16 @@ import { useFormik } from 'formik';
 import { carBrand } from 'helpers/createOptionForSelectBrand';
 import { price } from 'helpers/createOptionForSelectPrice';
 import {
+  Btn,
   FormStyled,
   InputWrap,
+  InputsWrap,
   LabelStyled,
   SelectWrap,
 } from './Filters.styled';
 
 export const Filters = () => {
-  const initialValues = {   
+  const initialValues = {
     brandSelectOption: '',
     priceSelectOption: '',
     from: '',
@@ -35,7 +37,7 @@ export const Filters = () => {
     <FormStyled onSubmit={formik.handleSubmit}>
       <SelectWrap>
         <LabelStyled htmlFor="brandSelectOption">Car brands</LabelStyled>
-        <select
+        <select className='brandSelectStyle'
           id="brandSelectOption"
           name="brandSelectOption"
           onChange={formik.handleChange} // Обробник зміни значення
@@ -52,7 +54,7 @@ export const Filters = () => {
 
       <SelectWrap>
         <LabelStyled htmlFor="priceSelectOption">Price/ 1 hour</LabelStyled>
-        <select
+        <select className='priceSelectStyle'
           id="priceSelectOption"
           name="priceSelectOption"
           onChange={formik.handleChange} // Обробник зміни значення
@@ -66,29 +68,33 @@ export const Filters = () => {
           ))}
         </select>
       </SelectWrap>
-      <InputWrap>
-        {/* <label htmlFor="firstName">First Name</label> */}
-        <input
-          id="from"
-          name="from"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.from}
-          placeholder="From"
-        />
-        {/* <label htmlFor="lastName">Last Name</label> */}
-        <input
-          id="to"
-          name="to"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.to}
-          placeholder="To"
-        />
-      </InputWrap>
-      <button type="submit" disabled={formik.dirty ? false : true}>
-        Submit
-      </button>
+      <InputsWrap>
+        <InputWrap>
+          <LabelStyled htmlFor="from">Сar mileage / km</LabelStyled>
+          <input className='input-left'
+            id="from"
+            name="from"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.from}
+            placeholder="From"
+          />
+        </InputWrap>
+        <InputWrap>
+          {/* <label htmlFor="to">Last Name</label> */}
+          <input className='input-right'
+            id="to"
+            name="to"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.to}
+            placeholder="To"
+          />
+        </InputWrap>
+      </InputsWrap>
+      <Btn type="submit" disabled={formik.dirty ? false : true}>
+      Search
+      </Btn>
     </FormStyled>
   );
 };

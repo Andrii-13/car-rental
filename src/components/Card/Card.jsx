@@ -1,32 +1,41 @@
 import React from 'react';
-import photo from 'data/image/homer.jpg';
-import { BrandWrap, Btn, CardStyled, DescriptionWrap, ImgWrap, TitleWrap } from './Card.styled';
+import photo from 'data/image/traktor.jpg';
+import {
+  BrandWrap,
+  Btn,
+  CardStyled,
+  DescriptionWrap,
+  FunctionalitiesStyled,
+  ImgWrap,
+  TitleWrap,
+} from './Card.styled';
 
-export const Card = () => {
+export const Card = ({ card }) => {
+  const {id, year, make, model, type, address, rentalPrice, mileage,functionalities, img, rentalCompany } = card;
+ 
   return (
     <CardStyled>
       <ImgWrap>
-        <img src={photo} alt="" width={274} height={268} />
+        <img src={img ?? photo} alt={model} width={274} height={268} />
       </ImgWrap>
       <div>
         <TitleWrap>
           <BrandWrap>
-            <span >Subaru</span>
-            <span className='modelCar'>XC60</span>
-            <span>2016</span>
+            <span>{make}</span>
+            <span className="modelCar">{model},</span>
+            <span>{year}</span>
           </BrandWrap>
-          <span>$45</span>
+          <span>{rentalPrice}</span>
         </TitleWrap>
 
         <DescriptionWrap>
-          <p>Kyiv</p>
-          <p>Ukraine</p>
-          <p>Adventure Car Rentals</p>
-          <p>Premium</p>
-          <p>Suv</p>
-          <p>Subaru</p>
-          <p>9590</p>
-          <p>Power moonroof</p>
+          <p>{address.split(",")[1].trim()}</p>
+          <p>{address.split(",")[2].trim()}</p>
+          <p>{rentalCompany}</p>
+          <p>{type}</p>
+          <p>{model}</p>
+          <p>{id}</p>
+          <FunctionalitiesStyled>{functionalities[0]}</FunctionalitiesStyled>
         </DescriptionWrap>
         <div>
           <Btn type="button">Learn more</Btn>
