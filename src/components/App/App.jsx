@@ -1,19 +1,26 @@
 // import Layout from 'components/Layout/Layout';
-// import { Route, Routes } from 'react-router-dom';
 
-import { Catalog } from 'components/Catalog/Catalog';
-import { Container, Section } from './App.styled';
+import Catalog from 'pages/Catalog/Catalog';
+import Favorites from 'pages/Favorites/Favorites';
+import Home from 'pages/Home/Home';
+import { NavLink, Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (
-    // <Routes>
-    //   <Route path="/" element={Layout}></Route>
-    // </Routes>
-
-    <Section>
-      <Container>
-        <Catalog />
-      </Container>
-    </Section>
+    <>
+      <header>
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/catalog">Catalog</NavLink>
+          <NavLink to="/favorites">Favorites</NavLink>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
   );
 };

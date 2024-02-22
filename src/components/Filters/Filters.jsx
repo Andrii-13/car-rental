@@ -22,7 +22,6 @@ export const Filters = () => {
 
   const handleSubmit = (values, actions) => {
     console.log(values);
-    // console.log(actions);
     actions.resetForm();
   };
 

@@ -7,22 +7,25 @@ body {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     background: #FFFFFF;
+
   }
 
 
-h1, h2{
-  /* margin-top: 50px;
-text-align: center;
-color: gray; */
+h1, h2, h3{
+margin: 0;
+padding: 0;
 }
 button{
-  /* padding: 0; */
+  padding: 0;
+  border: none;
+  
 }
 
   img {
-    /* display: block;
+    display: block;
+    
     max-width: 100%;
-    object-fit: cover; */
+    object-fit: cover;
   }
 
   ul{
@@ -33,5 +36,12 @@ button{
     /* color: white; */
   }
    
-
+  input, select{
+    border-radius: 14px;
+  }
+ 
+  p{
+    margin: 0;
+    padding: 0;
+  }
 `;
