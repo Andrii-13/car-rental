@@ -1,9 +1,8 @@
 import { fetchData } from 'api';
 import { Card } from 'components';
 import React, { useEffect, useState } from 'react';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
 import { CardsList } from './Cards.styled';
-
 
 export const Cards = () => {
   const [cards, setCards] = useState([]);
@@ -24,8 +23,14 @@ export const Cards = () => {
   console.log(cards);
 
   return (
-    <CardsList>
-      {cards.map((card) => (<Card key={nanoid()} card={card}/>))}
-    </CardsList>
+    <>
+      {cards.length > 0 && (
+        <CardsList>
+          {cards.map(card => (
+            <Card key={nanoid()} card={card} />
+          ))}
+        </CardsList>
+      )}
+    </>
   );
 };

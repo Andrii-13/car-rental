@@ -12,10 +12,11 @@ import {
   ImgWrap,
   TitleWrap,
 } from './Card.styled';
+import UniversalModal from 'components/Modal/Modal';
 
 export const Card = ({ card }) => {
   const [isActive, setIsActive] = useState(false);
-
+ 
   const {
     id,
     year,
@@ -31,6 +32,16 @@ export const Card = ({ card }) => {
 
   const toggleClick = () => {
     setIsActive(!isActive);
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -60,9 +71,14 @@ export const Card = ({ card }) => {
           <p>{id}</p>
           <FunctionalitiesStyled>{functionalities[0]}</FunctionalitiesStyled>
         </DescriptionWrap>
-        <div>
-          <Btn type="button">Learn more</Btn>
-        </div>
+        <UniversalModal isOpen={isOpen} onClose={closeModal}>
+          <button closeModal={closeModal}>
+            Lorem ipsum dolor 
+          </button >
+        </UniversalModal>
+        <>
+          <Btn type="button" onClick={openModal}>Learn more</Btn>
+        </>
       </div>
     </CardStyled>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomepageStyle = styled.div`
+export const HomeStyle = styled.div`
  display: flex;
   justify-content: center; 
   align-items: center; 

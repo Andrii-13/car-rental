@@ -12,6 +12,7 @@ export const MainTheme = {
   buttonColor: '#3470FF',
   buttonHoverColor: '#0B44CD',
   buttonFontColor: '#FFFFFF',
+  closeButton: '#121417',
 
   // =========  Input
   inputBackgroundColor: '#F7F7FB',

@@ -5,8 +5,7 @@ export const FormStyled = styled.form`
   display: flex;
   align-items: end;
   justify-content: center;
-  gap: 18px;
-  margin-top: 20px;
+  gap: 18px; 
 `;
 export const SelectWrap = styled.div`
   display: flex;

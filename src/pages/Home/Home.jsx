@@ -1,8 +1,8 @@
-import { HomepageStyle } from 'components/HomepageStyle/HomepageStyle.styled'
 import React from 'react'
+import { HomeStyle } from './Home.styled'
 
 export default function Home (){
   return (
-    <HomepageStyle><p>An application that helps you choose a rental car.</p></HomepageStyle>
+    <HomeStyle><p>An application that helps you choose a rental car.</p></HomeStyle>
   )
 }
