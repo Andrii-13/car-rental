@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllDataCars, fetchFavorite } from './operations';
+import { fetchAllDataCars } from './operations';
 
 const initialState = {
   adverts: [],
