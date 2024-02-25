@@ -24,3 +24,24 @@
   font-weight: 600;
   font-style: normal;
 }
+
+/* ====================================================================== */
+
+/* Montserrat-400*/
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Montserrat-600*/
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  src: url('./Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}

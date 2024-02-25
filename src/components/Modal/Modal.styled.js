@@ -24,7 +24,7 @@ const modalStyles = {
       borderRadius: '24px',
       boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
       width: "540px",
-      height: '752px',
+      height: 'fit-content',
       padding: '40px', 
     },
   };

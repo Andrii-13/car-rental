@@ -13,10 +13,13 @@ import {
   TitleWrap,
 } from './Card.styled';
 import UniversalModal from 'components/Modal/Modal';
+import { ModalCard } from 'components';
 
 export const Card = ({ card }) => {
   const [isActive, setIsActive] = useState(false);
- 
+  const [isOpen, setIsOpen] = useState(false);
+  const [idCar, setIdCar] = useState(null);
+
   const {
     id,
     year,
@@ -34,14 +37,15 @@ export const Card = ({ card }) => {
     setIsActive(!isActive);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
+  const openModal = e => {
     setIsOpen(true);
+    setIdCar(e.target.id);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -61,7 +65,6 @@ export const Card = ({ card }) => {
           </BrandWrap>
           <span>{rentalPrice}</span>
         </TitleWrap>
-
         <DescriptionWrap>
           <p>{address.split(',')[1].trim()}</p>
           <p>{address.split(',')[2].trim()}</p>
@@ -71,14 +74,16 @@ export const Card = ({ card }) => {
           <p>{id}</p>
           <FunctionalitiesStyled>{functionalities[0]}</FunctionalitiesStyled>
         </DescriptionWrap>
-        <UniversalModal isOpen={isOpen} onClose={closeModal}>
-          <button closeModal={closeModal}>
-            Lorem ipsum dolor 
-          </button >
-        </UniversalModal>
         <>
-          <Btn type="button" onClick={openModal}>Learn more</Btn>
+          {isOpen && (
+            <UniversalModal isOpen={isOpen} onClose={closeModal}>
+              <ModalCard id={idCar} />
+            </UniversalModal>
+          )}
         </>
+        <Btn id={id} type="button" onClick={openModal}>
+          Learn more
+        </Btn>
       </div>
     </CardStyled>
   );

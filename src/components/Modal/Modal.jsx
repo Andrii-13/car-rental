@@ -4,8 +4,9 @@ import { MdClose } from 'react-icons/md';
 import { ModalCloseButton } from './Modal.styled';
 import { useTheme } from 'styled-components';
 
-const UniversalModal = ({ isOpen, onClose, children, content }) => {
+const UniversalModal = ({ isOpen, onClose, children, content}) => {
     const theme = useTheme();
+    
   return (
     <Modal
       isOpen={isOpen}

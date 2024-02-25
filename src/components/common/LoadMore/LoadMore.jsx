@@ -1,8 +1,8 @@
-import React from 'react'
-import { LoadMoreStyled } from './LoadMore.styled'
+import { LoadMoreStyled } from './LoadMore.styled';
 
-export const LoadMore = () => {
-  return (
-    <LoadMoreStyled>Load more</LoadMoreStyled>
-  )
-}
+
+export const LoadMore = ({buttonClick}) => {
+
+console.log("Load more")
+  return <LoadMoreStyled onClick={buttonClick}>Load more</LoadMoreStyled>;
+};

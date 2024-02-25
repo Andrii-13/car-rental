@@ -1,7 +1,8 @@
 export const MainTheme = {
   // =========  Backgrounds
 
-  mainBackgroundColor: '#FFFFFF',  
+  mainBackgroundColor: '#FFFFFF',
+  secondaryBackgroundColor: '#F9F9F9',
 
   // =========  Fonts
   mainFontColor: '#121417',
@@ -13,6 +14,7 @@ export const MainTheme = {
   buttonHoverColor: '#0B44CD',
   buttonFontColor: '#FFFFFF',
   closeButton: '#121417',
+  LoadMorebutton: '#3470FF',
 
   // =========  Input
   inputBackgroundColor: '#F7F7FB',
