@@ -8,11 +8,14 @@ import { fetchAllDataCars } from '../../redux/dataSlice/operations';
 export default function Catalog() {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
+  const [allData, setAllData] = useState([]); // Масив для зберігання всіх отриманих даних
   
   const data = useSelector(state => state.data.adverts);
 
   useEffect(() => {
-    dispatch(fetchAllDataCars({ page}));
+    dispatch(fetchAllDataCars({ page })).then(response => {
+      setAllData(prevData => [...prevData, ...response.payload]);
+    });
   }, [dispatch, page]);
 
   const handleLoadMore = () => {
@@ -24,8 +27,8 @@ export default function Catalog() {
       <Filters />
       {data.length > 0 && (
         <>
-          <Cards />
-           <LoadMore buttonClick={handleLoadMore}/>
+          <Cards data={allData}/>
+          <LoadMore buttonClick={handleLoadMore}/>
         </>
       )}
     </CatalogStyled>

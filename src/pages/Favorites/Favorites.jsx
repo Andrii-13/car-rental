@@ -1,7 +1,13 @@
-import React from 'react'
+import { Cards } from 'components';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-export default function Favorites () {
+export default function Favorites() {
+  const favoriteData = useSelector(state => state.data.isfavorite);
+  console.log(favoriteData);
   return (
-    <div>Favorites</div>
-  )
+    <div>
+      <Cards data={favoriteData} />
+    </div>
+  );
 }
