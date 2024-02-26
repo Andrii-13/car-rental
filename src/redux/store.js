@@ -9,7 +9,6 @@ const dataPersistConfig = {
     whitelist: ['favoriteAdverts'],
   };
 
-
 export const store = configureStore({
   reducer: {
    data : persistReducer(dataPersistConfig, dataReducer),

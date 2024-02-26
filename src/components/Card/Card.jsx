@@ -16,6 +16,7 @@ import UniversalModal from 'components/Modal/Modal';
 import { ModalCard } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, delFavorite } from '../../redux/dataSlice/dataSlice';
+import { changeToFavorite } from 'api';
 
 export const Card = ({ card }) => {
   const [isActive, setIsActive] = useState(false);
@@ -37,21 +38,18 @@ export const Card = ({ card }) => {
   } = card;
 
   const toggleClick = e => {
+    console.log(isActive);
     setIsActive(!isActive);
+
     if (isActive === false) {
-      const favoriteAdvert = visibleAdverts.find(
-        ({ id }) => id === e.currentTarget.id
-      );
-      const updatedFavoriteAdvert = {
-        ...favoriteAdvert,
-        isFavorite: true,
-      };
-      dispatch(addFavorite(updatedFavoriteAdvert));
-    }else {
+      const advert = visibleAdverts.find(({ id }) => id === e.currentTarget.id);
+
+      changeToFavorite(advert.id, {isFavorite:true} );
+    } else {
       const notFavoriteAdvert = visibleAdverts.find(
         ({ id }) => id === e.currentTarget.id
       );
-      
+
       const updatedFavoriteAdvert = {
         ...notFavoriteAdvert,
         isFavorite: false,
