@@ -14,7 +14,7 @@ import {
 } from './Card.styled';
 import UniversalModal from 'components/Modal/Modal';
 import { ModalCard } from 'components';
-import {useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { changeToFavorite } from 'api';
 
 export const Card = ({ card }) => {
@@ -45,7 +45,6 @@ export const Card = ({ card }) => {
 
   const toggleClick = e => {
     setIsActive(!isActive);
-
     const advert = visibleAdverts.find(({ id }) => id === e.currentTarget.id);
     if (isActive === false) {
       changeToFavorite(advert.id, { isFavorite: true });

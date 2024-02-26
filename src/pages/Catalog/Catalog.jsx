@@ -28,7 +28,7 @@ export default function Catalog() {
       {data.length > 0 && (
         <>
           <Cards data={allData}/>
-          <LoadMore buttonClick={handleLoadMore}/>
+         {allData.length > 0 && <LoadMore buttonClick={handleLoadMore}/>}
         </>
       )}
     </CatalogStyled>

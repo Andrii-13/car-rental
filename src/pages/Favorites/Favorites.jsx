@@ -7,24 +7,22 @@ import { fetchAllDataCars } from '../../redux/dataSlice/operations';
 export default function Favorites() {
   const dispatch = useDispatch();
   const [allData, setAllData] = useState([]);
-  
+
   useEffect(() => {
     dispatch(fetchAllDataCars(1)).then(response => {
       setAllData(prevData => [...prevData, ...response.payload]);
     });
   }, [dispatch]);
 
-const favoriteData = allData.filter(({isFavorite}) => isFavorite === true )
+  const favoriteData = allData.filter(({ isFavorite }) => isFavorite === true);
 
   return (
     <div>
       {favoriteData.length ? (
-        <Cards data={favoriteData} />
+        <Cards data={favoriteData}/>
       ) : (
         <Title>You have not selected any offer</Title>
       )}
     </div>
   );
 }
-
-
