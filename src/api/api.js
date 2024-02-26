@@ -10,6 +10,5 @@ export const fetchCardById = async (id) => {
 
 export const changeToFavorite = async (id, value) => {
   const responce = await axios.put(`/adverts/${id}`, value);
-  console.log(responce.data)
   return responce.data;
 };

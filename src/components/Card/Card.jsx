@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import photo from 'data/image/traktor.jpg';
 import {
   BrandWrap,
@@ -14,8 +14,7 @@ import {
 } from './Card.styled';
 import UniversalModal from 'components/Modal/Modal';
 import { ModalCard } from 'components';
-import { useDispatch, useSelector } from 'react-redux';
-import { delFavorite } from '../../redux/dataSlice/dataSlice';
+import {useSelector } from 'react-redux';
 import { changeToFavorite } from 'api';
 
 export const Card = ({ card }) => {
@@ -23,7 +22,6 @@ export const Card = ({ card }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [idCar, setIdCar] = useState(null);
   const visibleAdverts = useSelector(state => state.data.adverts);
-  const dispatch = useDispatch();
   const {
     id,
     year,
@@ -37,24 +35,22 @@ export const Card = ({ card }) => {
     rentalCompany,
   } = card;
 
+  useEffect(() => {
+    if (card.isFavorite) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [card.isFavorite]);
+
   const toggleClick = e => {
-    console.log(isActive);
     setIsActive(!isActive);
 
+    const advert = visibleAdverts.find(({ id }) => id === e.currentTarget.id);
     if (isActive === false) {
-      const advert = visibleAdverts.find(({ id }) => id === e.currentTarget.id);
-
-      changeToFavorite(advert.id, {isFavorite:true} );
+      changeToFavorite(advert.id, { isFavorite: true });
     } else {
-      const notFavoriteAdvert = visibleAdverts.find(
-        ({ id }) => id === e.currentTarget.id
-      );
-
-      const updatedFavoriteAdvert = {
-        ...notFavoriteAdvert,
-        isFavorite: false,
-      };
-      dispatch(delFavorite(updatedFavoriteAdvert));
+      changeToFavorite(advert.id, { isFavorite: false });
     }
   };
 
