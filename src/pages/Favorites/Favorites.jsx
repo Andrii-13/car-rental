@@ -1,4 +1,5 @@
 import { Cards } from 'components';
+import { Title } from 'components/common/Title/Title';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +8,11 @@ export default function Favorites() {
   console.log(favoriteData);
   return (
     <div>
-      <Cards data={favoriteData} />
+      {favoriteData.length ? (
+        <Cards data={favoriteData} />
+      ) : (
+        <Title>You have not selected any offer</Title>
+      )}
     </div>
   );
 }

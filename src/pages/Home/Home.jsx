@@ -1,8 +1,8 @@
 import React from 'react'
-import { HomeStyle } from './Home.styled'
+import { Title } from 'components/common/Title/Title'
 
 export default function Home (){
   return (
-    <HomeStyle><p>An application that helps you choose a rental car.</p></HomeStyle>
+    <Title>An application that helps you choose a rental car.</Title>
   )
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeStyle = styled.div`
+export const TitleStyle = styled.p`
  display: flex;
   justify-content: center; 
   align-items: center; 
