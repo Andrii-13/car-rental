@@ -15,7 +15,7 @@ import {
 import UniversalModal from 'components/Modal/Modal';
 import { ModalCard } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, delFavorite } from '../../redux/dataSlice/dataSlice';
+import { delFavorite } from '../../redux/dataSlice/dataSlice';
 import { changeToFavorite } from 'api';
 
 export const Card = ({ card }) => {
