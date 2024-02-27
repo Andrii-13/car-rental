@@ -17,11 +17,12 @@ import { ModalCard } from 'components';
 import { useSelector } from 'react-redux';
 import { changeToFavorite } from 'api';
 
-export const Card = ({ card }) => {
+export const Card = ({ card}) => {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [idCar, setIdCar] = useState(null);
   const visibleAdverts = useSelector(state => state.data.adverts);
+  const [isFavorite, setisFavorite] = useState(false);
   const {
     id,
     year,
@@ -51,6 +52,8 @@ export const Card = ({ card }) => {
     } else {
       changeToFavorite(advert.id, { isFavorite: false });
     }
+    console.log(isFavorite)
+    setisFavorite(!isFavorite)
   };
 
   const openModal = e => {
