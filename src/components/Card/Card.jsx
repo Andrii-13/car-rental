@@ -14,15 +14,16 @@ import {
 } from './Card.styled';
 import UniversalModal from 'components/Modal/Modal';
 import { ModalCard } from 'components';
-import { useSelector } from 'react-redux';
-import { changeToFavorite } from 'api';
+import { useDispatch, useSelector } from 'react-redux';
+import { favoriteCards } from '../../redux/favoriteSlice/favoriteSlice';
 
-export const Card = ({ card}) => {
+export const Card = ({ card }) => {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [idCar, setIdCar] = useState(null);
   const visibleAdverts = useSelector(state => state.data.adverts);
-  const [isFavorite, setisFavorite] = useState(false);
+  const favoriteAverts = useSelector(state => state.favorite.favorite);
+  const dispatch = useDispatch();
   const {
     id,
     year,
@@ -36,24 +37,24 @@ export const Card = ({ card}) => {
     rentalCompany,
   } = card;
 
+  const activeCard = favoriteAverts.find(
+    favoriteAvert => favoriteAvert.id === id
+  );
+
   useEffect(() => {
-    if (card.isFavorite) {
+    if (activeCard) {
       setIsActive(true);
     } else {
       setIsActive(false);
     }
-  }, [card.isFavorite]);
+  }, [activeCard]);
 
   const toggleClick = e => {
     setIsActive(!isActive);
     const advert = visibleAdverts.find(({ id }) => id === e.currentTarget.id);
-    if (isActive === false) {
-      changeToFavorite(advert.id, { isFavorite: true });
-    } else {
-      changeToFavorite(advert.id, { isFavorite: false });
+    if(!isActive){
+      dispatch(favoriteCards(advert));
     }
-    console.log(isFavorite)
-    setisFavorite(!isFavorite)
   };
 
   const openModal = e => {

@@ -1,25 +1,15 @@
 import { Cards } from 'components';
 import { Title } from 'components/common/Title/Title';
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchAllDataCars } from '../../redux/dataSlice/operations';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function Favorites() {
-  const dispatch = useDispatch();
-  const [allData, setAllData] = useState([]);
-
-  useEffect(() => {
-    dispatch(fetchAllDataCars(1)).then(response => {
-      setAllData(prevData => [...prevData, ...response.payload]);
-    });
-  }, [dispatch]);
-
-  const favoriteData = allData.filter(({ isFavorite }) => isFavorite === true);
+  const favoriteAverts = useSelector(state => state.favorite.favorite);
 
   return (
     <div>
-      {favoriteData.length ? (
-        <Cards data={favoriteData}/>
+      {favoriteAverts.length ? (
+        <Cards data={favoriteAverts} />
       ) : (
         <Title>You have not selected any offer</Title>
       )}

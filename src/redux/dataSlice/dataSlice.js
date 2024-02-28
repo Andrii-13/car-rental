@@ -3,18 +3,12 @@ import { fetchAllDataCars } from './operations';
 
 const initialState = {
   adverts: [],
-  isfavorite: [],
+  // isfavorite: [],
 };
 
 const dataSlice = createSlice({
   name: 'data',
-  initialState,
-
-  // reducers: {
-  //   addFavorite(state, action) {
-  //     console.log(state);
-  //     state.adverts = [...state.adverts, action.payload];
-  //   },
+  initialState, 
 
   extraReducers: builder => {
     builder.addCase(fetchAllDataCars.fulfilled, (state, action) => {
