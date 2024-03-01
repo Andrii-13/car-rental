@@ -52,9 +52,7 @@ export const Card = ({ card }) => {
   const toggleClick = e => {
     setIsActive(!isActive);
     const advert = visibleAdverts.find(({ id }) => id === e.currentTarget.id);
-    if(!isActive){
-      dispatch(favoriteCards(advert));
-    }
+    dispatch(favoriteCards(advert)); // ???????????????????????//?
   };
 
   const openModal = e => {

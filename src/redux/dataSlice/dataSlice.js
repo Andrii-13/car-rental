@@ -3,7 +3,6 @@ import { fetchAllDataCars } from './operations';
 
 const initialState = {
   adverts: [],
-  // isfavorite: [],
 };
 
 const dataSlice = createSlice({
